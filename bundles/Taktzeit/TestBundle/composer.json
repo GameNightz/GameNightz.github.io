@@ -1,0 +1,22 @@
+{
+    "name": "taktzeit/test-bundle",
+    "version": "0.0.1",
+    "description": "Just a test",
+    "type": "symfony-bundle",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Sascha Weidner",
+            "email": "sascha.weidner@taktzeit.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "symfony/framework-bundle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Taktzeit\\TestBundle\\": "src/"
+        }
+    }
+}
