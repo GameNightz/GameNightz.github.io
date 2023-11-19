@@ -1,0 +1,81 @@
+.month-container
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto; /* Zentriert den Container */
+  max-width: 1350px; /* Maximal fünf Boxen pro Zeile mit 250px Breite */
+}
+
+.event-entry
+{
+  width: 250px; /* Feste Breite */
+  margin: 10px; /* Abstand zwischen den Boxen */
+  position: relative;
+  overflow: hidden; /* Um das überstehende Bild zu verstecken */
+  transition: transform 0.3s ease-in-out; /* Fügt eine sanfte Transition hinzu */
+}
+
+.event-entry:hover
+{
+  transform: scale(1.05); /* Vergrößert die Box minimal beim Hover */
+}
+
+.event-content
+{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+
+
+
+.event-content img
+{
+  width: 100%;
+  display: block;
+}
+
+.text-overlay
+{
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+}
+
+.text-overlay h3, .text-overlay p
+{
+  font-family: "Montserrat", sans-serif;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px)
+{
+  .event-box-container {
+    justify-content: flex-start; /* Links ausgerichtet, wenn Bildschirm kleiner wird */
+    margin: 0; /* Entfernt den seitlichen Rand bei kleineren Bildschirmen */
+  }
+}
+
+@media (max-width: 992px)
+{
+  .event-box {
+    width: 45%; /* Zwei Boxen pro Reihe auf etwas kleineren Bildschirmen */
+  }
+}
+
+@media (max-width: 768px)
+{
+  .event-box {
+    width: 100%; /* Eine Box pro Reihe auf noch kleineren Bildschirmen */
+    margin: 10px 0; /* Etwas Abstand oben und unten */
+  }
+}

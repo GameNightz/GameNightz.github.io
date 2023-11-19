@@ -1,0 +1,76 @@
+body
+{
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header
+{
+  background-color: rgb(27, 120, 133);
+  color: white;
+  text-align: center;
+  padding: 60px;
+}
+
+.container
+{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+}
+
+h1
+{
+  font-size: 36px;
+}
+
+p
+{
+  font-size: 18px;
+  text-align: left;
+  padding: 15px;
+}
+
+.team
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-card
+{
+  flex: 1;
+  max-width: 300px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile-card img
+{
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.profile-name
+{
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.profile-title
+{
+  font-size: 16px;
+}
+
+@media (max-width: 768px)
+{
+  .profile-card
+  {
+    flex: 1 1 calc(50% - 20px);
+  }
+}

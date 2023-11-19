@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GameNight index{% endblock %}
+
+{% block body %}
+    <h1>GameNight index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Slots</th>
+                <th>AgeRating</th>
+                <th>DateAndTime</th>
+                <th>Describtion</th>
+                <th>FeaturedGames</th>
+                <th>Visitors</th>
+                <th>actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for game_night in game_nights %}
+            <tr>
+                <td>{{ game_night.id }}</td>
+                <td>{{ game_night.name }}</td>
+                <td>{{ game_night.slots }}</td>
+                <td>{{ game_night.ageRating }}</td>
+                <td>{{ game_night.dateAndTime ? game_night.dateAndTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ game_night.describtion }}</td>
+                <td>
+                    {% if game_night.games != null %}
+                    {% for games in game_night.games %} 
+
+                    {{ games.name}} 
+                    {% endfor %}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if game_night.visitors != null %}
+                    {% for visitors in game_night.visitors %} 
+
+                    {{ visitors.userName}} 
+                    {% endfor %}
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('app_game_night_show', {'id': game_night.id}) }}">show</a>
+                    <a href="{{ path('app_game_night_edit', {'id': game_night.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_game_night_new') }}">Create new</a>
+{% endblock %}
