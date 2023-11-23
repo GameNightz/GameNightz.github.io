@@ -1,7 +1,14 @@
 Install xampp
 
-Create new folder in xampp named "TheProject"
-    and clone the repository into TheProject
+Install Githubs' terminal called Git Bash
+
+Create new folder in Directory "C:\xampp" named "TheProject"
+
+Clone our repository 
+    to do this open a new VS-code Window (for this you need to have linked your Github to VS-code)
+        now instead of "Open Folder" click on "Clone Repository" 
+            and select "TheProject" when it asks you where to clone it to
+
 
 manually go to this directory "C:\xampp\apache\conf\extra"
     and open the file titled "httpd-vhosts.conf"
