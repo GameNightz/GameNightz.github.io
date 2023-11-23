@@ -1,6 +1,6 @@
-Install xampp
+Install "xampp"(https://www.apachefriends.org/download.html)
 
-Install Githubs' terminal called Git Bash
+Install Githubs' terminal called "Git Bash"(https://git-scm.com/downloads)
 
 Create new folder in Directory "C:\xampp" named "TheProject"
 
@@ -46,7 +46,13 @@ Open the terminal via said controll panel (shell)
 
 Paste in "php composer.phar update"
     and let it run 
-        this will make everything run as it should
+        this will install Symfony among other things
+
+install Node.js(https://nodejs.org/en/download/) 
+    go to your Terminal 
+        run "npm install" and afterwards
+        run "npm run build"
+        
 
 Go to the config of MySQL
     and comment out the line that says "bind-address="...""
