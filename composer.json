@@ -39,7 +39,7 @@
         "symfony/twig-bundle": "6.3.*",
         "symfony/ux-vue": "^2.10",
         "symfony/validator": "6.3.*",
-        "symfony/webpack-encore-bundle": "^2.0",
+        "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "6.3.*",
         "symfonycasts/verify-email-bundle": "^1.14",
         "taktzeit/test-bundle": "^0.0.1",
