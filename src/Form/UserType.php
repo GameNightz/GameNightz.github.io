@@ -24,7 +24,7 @@ class UserType extends AbstractType
             ->add('lastName')
             ->add('dateOfBirth')
             ->add('gender')
-            // ->add('roles')
+            //->add('roles')
             ->add('isVerified')
             ->add('preferredGames', EntityType::class,[
                 'class'=> Game::class,

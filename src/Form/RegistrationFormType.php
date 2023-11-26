@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Entity\{User,Game,GameNight};
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -18,8 +19,23 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('email')
-        ->add('userName')
+        ->add('email', TextType::class, [
+
+            'label' => 'email',
+
+            'attr' => ['class' => 'required', 'placeholder' => '', 'maxlength' => '128', 'pattern' => '/@/'],
+
+            'required' => true, 
+
+            'constraints' => [                     
+
+                new NotBlank([                         
+                    'message' => 'Bitte geben Sie eine Email-Adresse ein.',                     
+                ])
+            
+            ]
+
+        ])
         ->add('userName')
         ->add('firstName')
         ->add('lastName')
