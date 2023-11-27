@@ -30,6 +30,14 @@
                 </td>
                 {# <td>{{ game.likedBy}}</td> #}
                 <td>
+                    {% if game.likedBy != null %}
+                    {% for likedBy in game.likedBy %} 
+
+                    {{ likedBy.userName}} 
+                    {% endfor %}
+                    {% endif %}
+                </td>
+                <td>
                     <a href="{{ path('app_game_show', {'id': game.id}) }}">show</a>
                     <a href="{{ path('app_game_edit', {'id': game.id}) }}">edit</a>
                 </td>

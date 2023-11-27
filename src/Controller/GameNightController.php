@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\GameNight;
+use App\Entity\{GameNight, Game, User};
 use App\Form\GameNightType;
 use App\Repository\GameNightRepository;
 use Doctrine\ORM\EntityManagerInterface;

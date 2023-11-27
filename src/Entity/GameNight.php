@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\GameNightRepository;
+use App\Repository\{GameNightRepository, UserRepository, GameRepository};
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;

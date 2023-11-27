@@ -28,7 +28,14 @@
             </tr>
             <tr>
                 <th>LikedBy</th>
-                <td>{{ game.likedBy}}</td>
+                <td>
+                {% if game.likedBy != null %}
+                {% for likedBy in game.likedBy %} 
+
+                {{ likedBy.userName}} 
+                {% endfor %}
+                {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>

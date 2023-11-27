@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
 
             'label' => 'email',
 
-            'attr' => ['class' => 'required', 'placeholder' => '', 'maxlength' => '128', 'pattern' => '/@/'],
+            'attr' => ['class' => 'required', 'placeholder' => '', 'maxlength' => '128', 'pattern' => '^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$'],
 
             'required' => true, 
 
