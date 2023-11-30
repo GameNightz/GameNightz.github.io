@@ -31,7 +31,7 @@ class GameNight
     #[ORM\Column(type: Types::TEXT)]
     private ?string $describtion = null;
 
-    #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'inNight')]
+    #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'inNights')]
     private Collection $games;
 
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'attends')]

@@ -31,10 +31,11 @@
                 <td>{{ game_night.describtion }}</td>
                 <td>
                     {% if game_night.games != null %}
-                    {% for games in game_night.games %} 
+                     {% for games in game_night.games %} 
 
                     {{ games.name}} 
                     {% endfor %}
+                    
                     {% endif %}
                 </td>
                 <td>
