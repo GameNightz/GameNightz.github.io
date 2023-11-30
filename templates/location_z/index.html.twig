@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LocationZController!{% endblock %}
+
+{% block body %}
+    <nav>
+      <div class="heading">
+        <h4>GameNightZ</h4>
+      </div>
+      <ul class="nav-links">
+        <li><a class="active-page" href="/">Home</a></li>
+        <li><a href="/aboutuz">AboutUz</a></li>
+        <li><a href="/eventz">Evenz</a></li>
+        <li><a href="/locationz">Locationz</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/login">LogIn</a></li>
+      </ul>
+    </nav>
+    <header>
+      <img src="../Images/roomsetupZ.avif" alt="Bild der Location" class="banner">
+    </header>
+    <main>
+      <section class="location-address">
+        <div class="address">
+          <h2>Adresse</h2>
+          <p>123 Musterstraße, 12345 Musterstadt</p>
+        </div>
+        <div class="location-photo">
+          <img src="../Images/location-photo.jpg" alt="Foto der Location">
+        </div>
+      </section>
+      <section class="directions">
+        <h2>Anreise</h2>
+        <p>Die Location ist gut erreichbar:</p>
+        <ul>
+          <li>Mit dem Auto: Hier können Sie die Anfahrt mit dem Auto beschreiben.</li>
+          <li>Mit öffentlichen Verkehrsmitteln:
+            <ul>
+              <li>Bus: Informationen zur Busanreise</li>
+              <li>Bahn: Informationen zur Bahnreise</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
+{% endblock %}

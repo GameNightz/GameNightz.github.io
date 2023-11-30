@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EventzController!{% endblock %}
+
+{% block body %}
+<nav>
+      <div class="heading">
+        <h4>GameNightZ</h4>
+      </div>
+      <ul class="nav-links">
+        <li><a class="active-page" href="/">Home</a></li>
+        <li><a href="/aboutuz">AboutUz</a></li>
+        <li><a href="/eventz">Evenz</a></li>
+        <li><a href="/locationz">Locationz</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/login">LogIn</a></li>
+      </ul>
+    </nav>
+    <div class="calendar-container"> <!-- Alles was mit den Event-karten zu tun hat --> <!-- ----- HIER NICHTS ÄNDERN!!! ----- -->
+      <!-- Ein Jahr -->
+      <div class="year-container" data-year="year2023">
+        <!-- Ein Monat -->
+        <div class="month-container" data-month="month0">
+          <!-- Überschrift (Monat) -->
+          <div class="month-title">
+            Januar 2023
+          </div>
+          <div class="month-content">
+            <!-- Ein Event -->
+            <div class="event-entry" data-title="Titel" data-date="[1, 1, 2023]" data-time="[0, 0]" onclick="openEventDetails(this)">
+              <img src="../Images/Image1.jpg">
+              <div class="event-content">
+                1. Januar 2023<br>
+                Titel
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="event-details-container">
+      <div class="event-title">
+        Titel
+      </div>
+      <div class="event-date">
+        Datum
+      </div>
+      <div class="event-time">
+        Uhrzeit
+      </div>
+      <div class="cancel-button" onclick="closeEventDetails()">
+        X
+      </div>
+    </div>
+    <script src="./events.js"></script>
+{% endblock %}
