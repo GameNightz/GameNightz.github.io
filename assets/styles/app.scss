@@ -1,3 +1,10 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+@import 'general';
+@import 'navigation';
+@import 'main';
+@import 'slideshow';
+@import 'aboutus';
+@import 'events';
+@import 'location';
