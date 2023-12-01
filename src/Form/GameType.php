@@ -14,7 +14,7 @@ class GameType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('inNight', EntityType::class,[
+            ->add('inNights', EntityType::class,[
                 'class'=> GameNight::class,
                 'choice_label' => 'name',
                 'multiple' => true,

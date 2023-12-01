@@ -36,7 +36,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateOfBirth = null;
 
-    #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'likedBy')]
+    #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'likedBy', cascade:['persist'])]
     private Collection $preferredGames;
 
     #[ORM\ManyToMany(targetEntity: GameNight::class, inversedBy: 'visitors')]
@@ -167,6 +167,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             $this->preferredGames->add($preferredGame);
             $preferredGame->addLikedBy($this);
         }
+
+        return $this;
+    }
+    public function setPreferredGame(Game $preferredGame): static
+    {
+        $this->preferredGame = $preferredGame;
 
         return $this;
     }

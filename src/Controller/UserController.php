@@ -65,8 +65,14 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user=$form->getData();
+            $games=$user->getPreferredGames();
+            foreach ($games as $game){
+                $game->addLikedBy($user);
+                $entityManager->persist($game);
+            }
+            $entityManager->persist($user);
             $entityManager->flush();
-
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
