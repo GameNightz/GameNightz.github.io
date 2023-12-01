@@ -13,44 +13,102 @@
         <li><a href="/eventz">Evenz</a></li>
         <li><a href="/locationz">Locationz</a></li>
         <li><a href="/faq">FAQ</a></li>
+        {% if app.user %}
+            {% if 'ROLE_USER' in app.user.getRoles() %}
+                <li><a href="/user">UserZ</a></li>
+                {% endif %}
+            {% endif %}
         <li><a href="/login">LogIn</a></li>
       </ul>
     </nav>
-    <div class="calendar-container"> <!-- Alles was mit den Event-karten zu tun hat --> <!-- ----- HIER NICHTS ÄNDERN!!! ----- -->
-      <!-- Ein Jahr -->
-      <div class="year-container" data-year="year2023">
-        <!-- Ein Monat -->
-        <div class="month-container" data-month="month0">
-          <!-- Überschrift (Monat) -->
-          <div class="month-title">
-            Januar 2023
-          </div>
-          <div class="month-content">
-            <!-- Ein Event -->
-            <div class="event-entry" data-title="Titel" data-date="[1, 1, 2023]" data-time="[0, 0]" onclick="openEventDetails(this)">
-              <img src="../Images/Image1.jpg">
-              <div class="event-content">
-                1. Januar 2023<br>
-                Titel
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="event-details-container">
-      <div class="event-title">
-        Titel
-      </div>
-      <div class="event-date">
-        Datum
-      </div>
-      <div class="event-time">
-        Uhrzeit
-      </div>
-      <div class="cancel-button" onclick="closeEventDetails()">
-        X
-      </div>
-    </div>
-    <script src="./events.js"></script>
+<h1>EvenZ</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+            {% if app.user %}
+            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
+                <th>Id</th>
+                {% endif %}
+            {% endif %}
+                
+                <th>Name</th>
+                <th>Slots</th>
+                <th>AgeRating</th>
+                <th>DateAndTime</th>
+                <th>Describtion</th>
+                <th>FeaturedGames</th>
+                <th>Visitors</th>
+                
+                
+                {% if app.user %}
+            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
+<th>
+                actions
+ </th>
+                {% endif %}
+            {% endif %}
+               
+            
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for game_night in game_nights %}
+            <tr>
+            {% if app.user %}
+            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
+                <td>{{ game_night.id }}</td>
+                {% endif %}
+            {% endif %}
+                
+                <td>{{ game_night.name }}</td>
+                <td>{{ game_night.slots }}</td>
+                <td>{{ game_night.ageRating }}</td>
+                <td>{{ game_night.dateAndTime ? game_night.dateAndTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ game_night.describtion }}</td>
+                <td>
+                    {% if game_night.games != null %}
+                     {% for games in game_night.games %} 
+
+                    {{ games.name}} 
+                    {% endfor %}
+                    
+                    {% endif %}
+                </td>
+                <td>
+                    {% if game_night.visitors != null %}
+                    {% for visitors in game_night.visitors %} 
+
+                    {{ visitors.userName}} 
+                    {% endfor %}
+                    {% endif %}
+                </td>
+                
+                
+                    
+                    {% if app.user %}
+            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
+            <td>
+                    <a href="{{ path('app_game_night_show', {'id': game_night.id}) }}">show</a>
+                    <a href="{{ path('app_game_night_edit', {'id': game_night.id}) }}">edit</a>
+                </td>
+            {% endif %}
+            {% endif %}
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if app.user %}
+            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
+                <a href="{{ path('app_game_night_new') }}">Create new</a>
+            {% endif %}
+            {% endif %}
+    
 {% endblock %}

@@ -13,6 +13,11 @@
         <li><a href="/eventz">Evenz</a></li>
         <li><a href="/locationz">Locationz</a></li>
         <li><a href="/faq">FAQ</a></li>
+        {% if app.user %}
+            {% if 'ROLE_USER' in app.user.getRoles() %}
+                <li><a href="/user">UserZ</a></li>
+                {% endif %}
+            {% endif %}
         <li><a href="/login">LogIn</a></li>
       </ul>
     </nav>

@@ -3,9 +3,14 @@
 {% block title %}New User{% endblock %}
 
 {% block body %}
+{% if app.user %}
+            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
+                
+                
     <h1>Create new User</h1>
 
     {{ include('user/_form.html.twig') }}
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    <a href="{{ path('app_user_index') }}">back to list</a>{% endif %}
+            {% endif %}
 {% endblock %}

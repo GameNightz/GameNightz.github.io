@@ -3,6 +3,24 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
+<nav>
+      <div class="heading">
+        <h4>GameNightZ</h4>
+      </div>
+      <ul class="nav-links">
+        <li><a class="active-page" href="/">Home</a></li>
+        <li><a href="/aboutuz">AboutUz</a></li>
+        <li><a href="/eventz">Evenz</a></li>
+        <li><a href="/locationz">Locationz</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        {% if app.user %}
+            {% if 'ROLE_USER' in app.user.getRoles() %}
+                <li><a href="/user">UserZ</a></li>
+                {% endif %}
+            {% endif %}
+        <li><a href="/login">LogIn</a></li>
+      </ul>
+    </nav>
     <h1>User index</h1>
 
     <table class="table">
@@ -18,9 +36,7 @@
                 <th>Gender</th>
                 <th>PreferredGames</th>
                 <th>Attends</th>
-                <th>Likes</th>
                 
-                <th>IsVerified</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -53,7 +69,6 @@
                 {% endif %}
                 </td>
                 {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
-                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
