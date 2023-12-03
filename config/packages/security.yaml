@@ -46,4 +46,5 @@ security:
         - { path: /admin, roles: ROLE_ADMIN}
         - { path: /gameNight/, roles: ROLE_ADMIN}
         - { path: /game/, roles: ROLE_ADMIN}
-        - { path: /user, roles: ROLE_USER }
+        - { path: /user/, roles: ROLE_ADMIN}
+        - { path: /userz/, roles: ROLE_USER}

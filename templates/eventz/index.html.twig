@@ -15,7 +15,7 @@
         <li><a href="/faq">FAQ</a></li>
         {% if app.user %}
             {% if 'ROLE_USER' in app.user.getRoles() %}
-                <li><a href="/user">UserZ</a></li>
+                <li><a href="/userz">UserZ</a></li>
                 {% endif %}
             {% endif %}
         <li><a href="/login">LogIn</a></li>
@@ -26,11 +26,6 @@
     <table class="table">
         <thead>
             <tr>
-            {% if app.user %}
-            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
-                <th>Id</th>
-                {% endif %}
-            {% endif %}
                 
                 <th>Name</th>
                 <th>Slots</th>
@@ -39,15 +34,6 @@
                 <th>Describtion</th>
                 <th>FeaturedGames</th>
                 <th>Visitors</th>
-                
-                
-                {% if app.user %}
-            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
-<th>
-                actions
- </th>
-                {% endif %}
-            {% endif %}
                
             
                 
@@ -57,11 +43,6 @@
         <tbody>
         {% for game_night in game_nights %}
             <tr>
-            {% if app.user %}
-            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
-                <td>{{ game_night.id }}</td>
-                {% endif %}
-            {% endif %}
                 
                 <td>{{ game_night.name }}</td>
                 <td>{{ game_night.slots }}</td>
@@ -88,14 +69,7 @@
                 
                 
                     
-                    {% if app.user %}
-            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
-            <td>
-                    <a href="{{ path('app_game_night_show', {'id': game_night.id}) }}">show</a>
-                    <a href="{{ path('app_game_night_edit', {'id': game_night.id}) }}">edit</a>
-                </td>
-            {% endif %}
-            {% endif %}
+                    
                 
             </tr>
         {% else %}
@@ -105,10 +79,5 @@
         {% endfor %}
         </tbody>
     </table>
-    {% if app.user %}
-            {% if 'ROLE_ADMIN' in app.user.getRoles() %}
-                <a href="{{ path('app_game_night_new') }}">Create new</a>
-            {% endif %}
-            {% endif %}
     
 {% endblock %}
